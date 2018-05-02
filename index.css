@@ -1,0 +1,122 @@
+.card-img-top{
+    width: 300px;
+    height: 300px;
+    border-radius: 30%;
+}
+
+.card{
+    width: 300px;
+    margin:10px;
+    border-radius: 15px;
+    background-color: rgba(255, 235, 59, 0.43);
+    font-weight: bold;
+}
+
+.card-body{
+    height: auto;
+}
+
+p{ 
+    height: auto;
+    padding:5px 10px;
+}
+*{
+/*    border: 1px solid red;*/
+    font-family: 'Gugi', cursive;
+    letter-spacing: 2px;
+}
+
+.container{
+    max-width:100%;
+    padding:0;
+}
+
+.main-page{
+    height: 670px;
+    background: url('imgs/Wiki-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enter{
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+}
+
+.showcase{
+    width: 100%;
+    background: url('imgs/grass-cartoon.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+}
+
+.invisible{
+    width:100%;
+    height: auto;
+    display:none;
+}
+
+.image{
+     margin-left: 50px;
+    margin-top: 60px;
+}
+img{
+    width:100%;
+    height:170px;
+    width: auto;
+    margin-bottom: 0;
+    position:relative;
+    bottom:10px;
+}
+
+
+.col-lg-4{
+    height: 220px;
+}
+
+.invisible-pokemon {
+    width: 100%;
+    height: 200px;
+    display:none;
+}
+
+.reveal-pokemon{
+    display: none;
+}
+
+.stats{
+    display: none;
+}
+
+.bg{
+    width:390px;
+    background-color: rgba(204, 245, 33, 0.17);
+    border-radius: 15px;
+    padding:10px;
+}
+
+.name{
+    text-transform: capitalize;
+}
+ 
+.message{
+    display:none;
+    border-radius: 15px;  
+}
+
+.first-word{
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.trainer-name{
+   font-weight: bolder; 
+   text-decoration: underline;
+}
+
+
