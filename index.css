@@ -20,8 +20,8 @@ p{
     height: auto;
     padding:5px 10px;
 }
+
 *{
-/*    border: 1px solid red;*/
     font-family: 'Gugi', cursive;
     letter-spacing: 2px;
 }
@@ -61,7 +61,7 @@ p{
 }
 
 .image{
-     margin-left: 50px;
+    margin-left: 50px;
     margin-top: 60px;
 }
 img{
@@ -119,4 +119,23 @@ img{
    text-decoration: underline;
 }
 
+.flying-bird{
+    width:150px;
+    height:80px;
+    margin-top: 30px;
+    position: absolute;
+    left: 320px;
+    animation: move 20s linear;
+}
 
+@keyframes move{
+    0%{
+        left:-1000px;
+        opacity:0.3;
+    }
+    100%{
+       right: -1000px;
+       opacity:1;
+    }
+    
+}
