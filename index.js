@@ -126,8 +126,11 @@ class Pokemon{
 let lugia = new Pokemon('lugia',249);
 let blastoise = new Pokemon('blastoise',9);
 let jigglypuff = new Pokemon('jigglypuff',39);
-
 let irakem = new Trainer('Irakem', [lugia, blastoise, jigglypuff]);
+
+
+
+
 
 function getPokemonStats(name,id){
   axios.get('https://raw.githubusercontent.com/irisha126/pokedexProject/master/api/'+id+'.json')
@@ -164,9 +167,9 @@ let attack = document.querySelector('.attack');
 let defense = document.querySelector('.defense');
 let abilities = document.querySelector('.abilities');
 let stats = document.querySelector('.stats');
-let trainerName = document.querySelector('.trainer-name');
-
-trainerName.innerHTML = irakem.name;
+//let trainerName = document.querySelector('.trainer-name');
+//
+//trainerName.innerHTML = irakem.name;
 
 let messageElement;
 function showStats(myPokemon){
@@ -202,3 +205,16 @@ myPokemon3.addEventListener('mouseover',function(){
 });
 
 
+let alexButton = document.querySelector('#alex');
+let irynaButton = document.querySelector('#iryna');
+let joseButton = document.querySelector('#jose');
+
+irynaButton.addEventListener('click', function(){
+    let irynasPokemons = irakem.all();
+    console.log(irynasPokemons);
+    
+});
+
+//alexButton = document.addEventListener('click', function(){
+//    let alexsPokemons = vernancio.all();
+//});
