@@ -221,7 +221,3 @@ irynaButton.addEventListener('click', function(){
     console.log(irynasPokemons);
     
 });
-
-//alexButton = document.addEventListener('click', function(){
-//    let alexsPokemons = vernancio.all();
-//});
