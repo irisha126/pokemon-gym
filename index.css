@@ -139,6 +139,7 @@ img:hover {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 
 .flying-bird{
     width:150px;
@@ -158,4 +159,17 @@ img:hover {
        right: -1000px;
        opacity:1;
     }
+}
+.button {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: blue;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.button:active {
+    background-color: red;
+    color: white;
 }

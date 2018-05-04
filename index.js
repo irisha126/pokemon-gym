@@ -92,8 +92,8 @@ openBall3.addEventListener('click',function(){
 
 
 class Trainer{
-    constructor(name, pokemon){
-        this.name = name;
+    constructor(trainer, pokemon){
+        this.trainer = trainer;
         this.pokemon = pokemon;
     }
 
@@ -123,6 +123,7 @@ class Pokemon{
         this.abilities = abilities;
     }
 }
+
 let lugia = new Pokemon('lugia',249);
 let blastoise = new Pokemon('blastoise',9);
 let jigglypuff = new Pokemon('jigglypuff',39);
@@ -132,39 +133,115 @@ let pheromosa = new Pokemon('pheromosa',795);
 let nidoking = new Pokemon('nidoking', 34);
 let zapdos = new Pokemon('zapdos',145);
 let umbreon = new Pokemon('umbreon', 197);
+
 let irakem = new Trainer('Irakem', [lugia, blastoise, jigglypuff]);
 let vernancio = new Trainer('Vernancio',[jynx, buzzwole, pheromosa]);
 let wes = new Trainer('Wes',[nidoking, zapdos, umbreon]);
 
 
+let alexButton = document.querySelector('#alex');
+let irynaButton = document.querySelector('#iryna');
+let joseButton = document.querySelector('#jose');
+
+let trainerName;
+function clickedTrainer(trainer){
+    trainerName = trainer;
+    if(trainerName === 'irakem'){
+        myPokemon1.src = 'imgs/lugia.png';
+        myPokemon2.src = 'imgs/blastoise.png';
+        myPokemon3.src = 'imgs/jigglypuff.png';
+        myPokemon1.addEventListener('mouseover',function(){
+          let pokemon = irakem.get('lugia');
+          showStats(pokemon);  
+          });
+
+        myPokemon2.addEventListener('mouseover',function(){
+          let pokemon = irakem.get('blastoise')
+          showStats(pokemon);
+        });
+
+        myPokemon3.addEventListener('mouseover',function(){
+          let pokemon = irakem.get('jigglypuff')
+          showStats(pokemon);
+        });
+
+    }
+        else if (trainerName === 'vernancio'){
+            myPokemon1.src = 'imgs/buzzwole.png';
+            myPokemon2.src = 'imgs/jynx.png';
+            myPokemon3.src = 'imgs/pheromosa.png';
+            
+            myPokemon1.addEventListener('mouseover',function(){
+              let pokemon = vernancio.get('buzzwole');
+              showStats(pokemon);  
+            });
+
+            myPokemon2.addEventListener('mouseover',function(){
+              let pokemon = vernancio.get('jynx')
+              showStats(pokemon);
+            });
+
+            myPokemon3.addEventListener('mouseover',function(){
+              let pokemon = vernancio.get('pheromosa')
+              showStats(pokemon);
+            });
+
+        }
+            else{
+                myPokemon1.src = 'imgs/nidoking.png';
+                myPokemon2.src = 'imgs/zapdos.png';
+                myPokemon3.src = 'imgs/umbreon.png';
+                
+                 myPokemon1.addEventListener('mouseover',function(){
+              let pokemon = wes.get('nidoking');
+              showStats(pokemon);  
+            });
+
+            myPokemon2.addEventListener('mouseover',function(){
+              let pokemon = wes.get('zapdos')
+              showStats(pokemon);
+            });
+
+            myPokemon3.addEventListener('mouseover',function(){
+              let pokemon = wes.get('umbreon')
+              showStats(pokemon);
+            });
+
+                
+            
+            }
+}
 
 
 function getPokemonStats(trainer,name,id){
-  axios.get('https://raw.githubusercontent.com/irisha126/pokedexProject/master/api/'+id+'.json')
+  axios.get('https://raw.githubusercontent.com/irisha126/pokemon-gym/a7c8222add76ab69374446d17f475d93ecda9ece/api/'+id+'.json')
    .then(function(myResponse){
       let abilitiesArr = [];
       let abilitiesApi = myResponse.data.abilities;
       for (let i = 0; i < abilitiesApi.length; i++) {
          abilitiesArr.push(abilitiesApi[i].ability.name);
-       }
-      let myPokemon = trainer.get(name);
-      myPokemon.name = myResponse.data.name;
-      myPokemon.hp = myResponse.data.stats[5].base_stat;
-      myPokemon.id = myResponse.data.id;
-      myPokemon.attack = myResponse.data.stats[4].base_stat;
-      myPokemon.defense = myResponse.data.stats[3].base_stat;
-      myPokemon.abilities = abilitiesArr;
-      
-  });
-      
-
-  }
+         let myPokemon = trainer.get(name);
+         myPokemon.name = myResponse.data.name;
+         myPokemon.hp = myResponse.data.stats[5].base_stat;
+         myPokemon.id = myResponse.data.id;
+         myPokemon.attack = myResponse.data.stats[4].base_stat;
+         myPokemon.defense = myResponse.data.stats[3].base_stat;
+         myPokemon.abilities = abilitiesArr;   
+      }
+  })
+}
          
         
 
-getPokemonStats('lugia',249);
-getPokemonStats('blastoise',9);
-getPokemonStats('jigglypuff',39);
+getPokemonStats(irakem,'lugia',249);
+getPokemonStats(irakem,'blastoise',9);
+getPokemonStats(irakem,'jigglypuff',39);
+getPokemonStats(vernancio,'buzzwole',794);
+getPokemonStats(vernancio,'jynx',124);
+getPokemonStats(vernancio,'pheromosa',795);
+getPokemonStats(wes,'nidoking',34);
+getPokemonStats(wes,'zapdos',145);
+getPokemonStats(wes,'umbreon',197);
 
 
 let name = document.querySelector('.name');
@@ -174,13 +251,10 @@ let attack = document.querySelector('.attack');
 let defense = document.querySelector('.defense');
 let abilities = document.querySelector('.abilities');
 let stats = document.querySelector('.stats');
-//let trainerName = document.querySelector('.trainer-name');
-//
-//trainerName.innerHTML = irakem.name;
+
 
 let messageElement;
 function showStats(myPokemon){
-  
   name.innerText = myPokemon.name;
   id.innerText = myPokemon.id;
   hp.innerText = myPokemon.hp;
@@ -196,28 +270,16 @@ function showStats(myPokemon){
   messageElement.style.display = 'block';
 }
 
-myPokemon1.addEventListener('mouseover',function(){
-    let pokemon = irakem.get('lugia');
-    showStats(pokemon);  
+
+            
+alexButton.addEventListener('click', function(){
+    clickedTrainer('vernancio');
 });
-
-myPokemon2.addEventListener('mouseover',function(){
-   let pokemon = irakem.get('blastoise')
-    showStats(pokemon);
-});
-
-myPokemon3.addEventListener('mouseover',function(){
-    let pokemon = irakem.get('jigglypuff')
-    showStats(pokemon);
-});
-
-
-let alexButton = document.querySelector('#alex');
-let irynaButton = document.querySelector('#iryna');
-let joseButton = document.querySelector('#jose');
-
+            
 irynaButton.addEventListener('click', function(){
-    let irynasPokemons = irakem.all();
-    console.log(irynasPokemons);
-    
-});
+    clickedTrainer('irakem');
+})            
+            
+joseButton.addEventListener('click', function(){
+    clickedTrainer('wes');
+})
