@@ -1,3 +1,5 @@
+//this is my code my weapon of choice 234234234323ewrtwertreterwt
+
 let isDivHidden = true;
 let revealButton = document.querySelector('.btn');
 let toggleDiv = document.querySelector('.invisible');
@@ -8,8 +10,8 @@ revealButton.addEventListener('click',function(){
         toggleDiv.classList.remove('invisible');
         isDivHidden = false;
         toggleDiv1.classList.add('invisible');
-    }  
-}); 
+    }
+});
 
 let revealBall1 = document.querySelector('#ball1');
 let revealBall2 = document.querySelector('#ball2');
@@ -30,7 +32,7 @@ revealBall1.addEventListener('click',function(){
         myPokemon1.classList.remove('invisible-pokemon');
         openBall1.classList.remove('reveal-pokemon');
         pokemonHidden1 = false;
-        revealBall1.classList.add('invisible-pokemon');         
+        revealBall1.classList.add('invisible-pokemon');
     }
 });
 
@@ -40,7 +42,7 @@ revealBall2.addEventListener('click',function(){
         myPokemon2.classList.remove('invisible-pokemon');
         openBall2.classList.remove('reveal-pokemon');
         pokemonHidden2 = false;
-        revealBall2.classList.add('invisible-pokemon');         
+        revealBall2.classList.add('invisible-pokemon');
     }
 });
 
@@ -50,7 +52,7 @@ revealBall3.addEventListener('click',function(){
         myPokemon3.classList.remove('invisible-pokemon');
         openBall3.classList.remove('reveal-pokemon');
         pokemonHidden3 = false;
-        revealBall3.classList.add('invisible-pokemon');         
+        revealBall3.classList.add('invisible-pokemon');
     }
 });
 
@@ -59,19 +61,19 @@ openBall1.addEventListener('click',function(){
         myPokemon1.classList.add('invisible-pokemon');
         openBall1.classList.add('reveal-pokemon');
         pokemonHidden1 = true;
-        revealBall1.classList.remove('invisible-pokemon'); 
+        revealBall1.classList.remove('invisible-pokemon');
     }
     stats.classList.add('stats');
     messageElement.style.display = 'none';
 });
-  
+
 
 openBall2.addEventListener('click',function(){
     if(pokemonHidden2 === false){
         myPokemon2.classList.add('invisible-pokemon');
         openBall2.classList.add('reveal-pokemon');
         pokemonHidden2 = true;
-        revealBall2.classList.remove('invisible-pokemon'); 
+        revealBall2.classList.remove('invisible-pokemon');
     }
     stats.classList.add('stats');
     messageElement.style.display = 'none';
@@ -82,7 +84,7 @@ openBall3.addEventListener('click',function(){
         myPokemon3.classList.add('invisible-pokemon');
         openBall3.classList.add('reveal-pokemon');
         pokemonHidden3 = true;
-        revealBall3.classList.remove('invisible-pokemon'); 
+        revealBall3.classList.remove('invisible-pokemon');
     }
     stats.classList.add('stats');
     messageElement.style.display = 'none';
@@ -100,7 +102,7 @@ class Trainer{
     all(){
         return this.pokemon;
     }
-    
+
     get(name){
         for(let i = 0; i < this.pokemon.length;i++){
             let pokemonName=this.pokemon[i].name;
@@ -145,10 +147,10 @@ function getPokemonStats(name,id){
          'defense': myResponse.data.stats[3].base_stat,
          'abilities': abilitiesArr
        }
-         irakem.pokemon.push(stats); 
+         irakem.pokemon.push(stats);
    })
 }
-    
+
 
 getPokemonStats('lugia',249);
 getPokemonStats('blastoise',9);
@@ -185,7 +187,7 @@ function showStats(pokemon){
 }
 
 myPokemon1.addEventListener('mouseover',function(){
-    showStats('lugia');  
+    showStats('lugia');
 });
 
 myPokemon2.addEventListener('mouseover',function(){
@@ -195,5 +197,3 @@ myPokemon2.addEventListener('mouseover',function(){
 myPokemon3.addEventListener('mouseover',function(){
     showStats('jigglypuff');
 });
-
-
