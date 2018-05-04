@@ -1,3 +1,10 @@
+$('button').on('click', function(){
+    $('button').removeClass('selected');
+    $(this).addClass('selected');
+});
+
+
+
 let isDivHidden = true;
 let revealButton = document.querySelector('.btn');
 let toggleDiv = document.querySelector('.invisible');
