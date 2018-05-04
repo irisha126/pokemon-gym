@@ -126,13 +126,20 @@ class Pokemon{
 let lugia = new Pokemon('lugia',249);
 let blastoise = new Pokemon('blastoise',9);
 let jigglypuff = new Pokemon('jigglypuff',39);
+let jynx = new Pokemon('jynx',124);
+let buzzwole = new Pokemon('buzzwole', 794);
+let pheromosa = new Pokemon('pheromosa',795);
+let nidoking = new Pokemon('nidoking', 34);
+let zapdos = new Pokemon('zapdos',145);
+let umbreon = new Pokemon('umbreon', 197);
 let irakem = new Trainer('Irakem', [lugia, blastoise, jigglypuff]);
+let vernancio = new Trainer('Vernancio',[jynx, buzzwole, pheromosa]);
+let wes = new Trainer('Wes',[nidoking, zapdos, umbreon]);
 
 
 
 
-
-function getPokemonStats(name,id){
+function getPokemonStats(trainer,name,id){
   axios.get('https://raw.githubusercontent.com/irisha126/pokedexProject/master/api/'+id+'.json')
    .then(function(myResponse){
       let abilitiesArr = [];
@@ -140,7 +147,7 @@ function getPokemonStats(name,id){
       for (let i = 0; i < abilitiesApi.length; i++) {
          abilitiesArr.push(abilitiesApi[i].ability.name);
        }
-      let myPokemon = irakem.get(name);
+      let myPokemon = trainer.get(name);
       myPokemon.name = myResponse.data.name;
       myPokemon.hp = myResponse.data.stats[5].base_stat;
       myPokemon.id = myResponse.data.id;
